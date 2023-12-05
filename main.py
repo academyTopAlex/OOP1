@@ -1,5 +1,13 @@
+class Owner:
+    pass
+
+
+class Docter:
+    pass
+
+
 class Animal:
-    def __init__(self, name, age, owner, docter) -> None:
+    def __init__(self, name, age, owner: Owner, docter: Docter) -> None:
         self.__name = name
         self.__age = age
         self.__owner = owner
@@ -17,13 +25,18 @@ class Animal:
     def get_name(self):
         return self.__name
 
+
 class Cat(Animal):
+    count = 0
+
     def __init__(self, name: str, age: int, owner, docter, may: str):
         super().__init__(name, age, owner, docter)
         self.may = may
+        Cat.count += 1
 
     def talk(self):
         print("мяу")
+
 
 class Dog(Animal):
     def __init__(self, name: str, age: int, owner, docter, gaf: str):
@@ -33,20 +46,51 @@ class Dog(Animal):
     def talk(self):
         print("гав")
 
-cat1 = Cat("Васька", 5, "", "", "may")
-dog1 = Dog("Васька", 5, "", "", "may")
-cat1.talk()
-dog1.talk()
-# print(cat1.age)
-# print(cat1.name)
-# cat1._age = 1000
-# print(cat1)
-# cat2 = Cat("Барсик", 2)
-# print(cat2)
-# print(cat2.age)
-# print(cat2.name)
 
-# cat1.may(3)
+# cat1 = Cat("Васька", 5, "", "", "may")
+# print(cat1.__dict__)
+# cat1.newVar = 555
+# print(cat1.__dict__)
+# cat2 = Cat("Васька", 5, "", "", "may")
+# print(cat2.__dict__)
 
-# print(type(cat1))
+# dog1 = Dog("Васька", 5, "", "", "may")
+# cat1.talk()
+# dog1.talk()
+
+#
+# class Stack:
+#     def __init__(self):
+#         self.__stack_list = []
+#
+#     def push(self, var):
+#         self.__stack_list.append(var)
+#
+#     def pop(self):
+#         if len(self.__stack_list) != 0:
+#             var = self.__stack_list[-1]
+#             del self.__stack_list[-1]
+#             return var
+#
+#     def __str__(self):
+#         return str(self.__stack_list)
+#
+# stack1 = Stack()
+#
+#
+# stack1.push(9)
+# stack1.push(8)
+# stack1.push(7)
+# stack1.push(6)
+# stack1.push(5)
+#
+# stack1.pop()
+# stack1.pop()
+# stack1.pop()
+# stack1.pop()
+# stack1.pop()
+# stack1.pop()
+#
+# print(stack1)
+
 
