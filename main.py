@@ -1,5 +1,11 @@
-class Owner:
+from typing import List
+
+class Person:
     pass
+
+class Owner:
+    def __init__(self, phone):
+        self.phone = phone
 
 
 class Docter:
@@ -25,6 +31,8 @@ class Animal:
     def get_name(self):
         return self.__name
 
+    def get_owner(self):
+        return self.__owner
 
 class Cat(Animal):
     count = 0
@@ -47,18 +55,22 @@ class Dog(Animal):
         print("гав")
 
 
-# cat1 = Cat("Васька", 5, "", "", "may")
-# print(cat1.__dict__)
-# cat1.newVar = 555
-# print(cat1.__dict__)
-# cat2 = Cat("Васька", 5, "", "", "may")
-# print(cat2.__dict__)
+cat1 = Cat("Васька", 5, Owner("55"), Docter(), "may")
+cat2 = Cat("СерЛанцелап", 5, Owner("5454"), Docter(), "may")
+dog1 = Dog("ВаськаПес", 5, Owner("5484848"), Docter(), "may")
 
-# dog1 = Dog("Васька", 5, "", "", "may")
 # cat1.talk()
 # dog1.talk()
 
-#
+lst: List[Animal] = []
+lst.append(dog1)
+lst.append(cat2)
+lst.append(cat1)
+
+for animal in lst:
+    print(animal.get_owner().phone)
+
+
 # class Stack:
 #     def __init__(self):
 #         self.__stack_list = []
@@ -92,5 +104,3 @@ class Dog(Animal):
 # stack1.pop()
 #
 # print(stack1)
-
-
